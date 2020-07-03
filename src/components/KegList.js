@@ -1,17 +1,16 @@
-import React from "react";
+import React from 'react';
+import Keg from './Keg';
+// import PropTypes from 'prop-types';
 
-function App(){
+
+function KegList() {
   return (
-    <React.Fragment>
-      <h1>Tap Room</h1>
-      <h3>BatSquatch</h3>
-      <h3>Hazy IPA</h3>
-      <h3>8.0% ABV</h3>
-      <h3>124 Pints</h3>
-      <p><em>Firebase entries not saving!</em></p>
-      <hr/>
-    </React.Fragment>
+    <Keg />
   );
 }
 
-export default App;
+// KegList.propTypes = {
+//   kegList: PropTypes.array
+// };
+
+export default KegList;
