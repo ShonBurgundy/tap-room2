@@ -1,4 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# _Tap Rooom_
+
+
+#### By _**Sean VanLeeuwen**_
+
+## Description
+
+_A REACT app which allows user to input new kegs and view its details, as will as well a pint at a time._
+
+## Specs
+
+| Behavior      | Input        | Output  |
+| ------------- |:-------------:| -----:|
+|  Program will allow user to add a keg | *add* *Batsquatch/IPA* | Batsquatch IPA |
+|  Program will allow user to view keg details | *clickOn Keg* | *DETAILS PAGE** |
+|  Program will allow user to sell a pint | *Sell Pint*  | *Quantity Decrements 1* |
+
+
+## Setup/Installation Requirements
+
+1. In the terminal, type 'git clone https://github.com/ShonBurgundy/tap-room'.
+1. Enter the directory, with cd 'tap-room' 
+1. Open the downloaded directory in a text editor of your choice.
+  (VSCode, Atom, etc.) 
+1. Run "npm install" in terminal to install dependencies
+1. In terminal run  "npm run start" to start live server.
+1. Input localhost:3000 into browser to see live site
+
+## Known Bugs
+
+No Full CRUD func.
+
+## Support and contact details
+
+_Sean VanLeeuwen's email:_
+__seanbeloussow@yahoo.com
+
+## Technologies Used
+
+* _REACT_
+* _JSX_
+* _JavaScript_
+* _Markdown_
+* _Git_
+* _Jquery_
 
 ## Available Scripts
 

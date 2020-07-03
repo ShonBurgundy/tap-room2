@@ -11,18 +11,20 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       masterKegList: [],
       selectedKeg: null,
+      quantity: 124
     };
-  }
-
-  handleAddingNewKegToList = (newKeg) => {
-    const newMasterKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({masterKegList: newMasterKegList,
-                  formVisibleOnPage: false });
   }
 
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
+  }
+
+  handleAddingNewKegToList = (newKeg) => {
+    const newMasterKegList = this.state.masterKegList.concat(newKeg);
+    this.setState({masterKegList: newMasterKegList,
+                  formVisibleOnPage: false,
+                  counter: 0 });
   }
 
   handleClick = () => {
@@ -31,9 +33,14 @@ class KegControl extends React.Component {
         formVisibleOnPage: false,
         selectedKeg: null
       });
+    } else if (this.state.counter === 0) {
+      this.setState(prevState => ({
+        counter: prevState.counter + 1
+      }));  
     } else {
       this.setState(prevState => ({
         formVisibleOnPage: !prevState.formVisibleOnPage,
+        counter: 0
       }));
     }
   }
