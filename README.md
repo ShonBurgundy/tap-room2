@@ -73,3 +73,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ![App Layout](./img/Tap-Diagram2.png)
 
+![App Layout](./img/Tap-Diagram3.png)
+
