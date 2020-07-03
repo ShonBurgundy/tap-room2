@@ -11,13 +11,14 @@ function NewKegForm(props){
        brand: event.target.brand.value,
         price: event.target.price.value,
          abv: event.target.abv.value,
+         fullKeg: event.target.fullKeg.value,
           id: v4()
         });
   }
 
   return (
     <React.Fragment>
-          <form onSubmit={handleNewKegFormSubmission}>
+      <form onSubmit={handleNewKegFormSubmission}>
         <input
           type='text'
           name='name'
@@ -33,7 +34,11 @@ function NewKegForm(props){
         <input
           type='text'
           name='abv'
-          placeholder='ABV' />  
+          placeholder='ABV' />
+        <input
+          type='text'
+          name='fullKeg'
+          placeholder='Keg Volume' />
         <button type='submit'>Add Keg</button>
       </form>
     </React.Fragment>
