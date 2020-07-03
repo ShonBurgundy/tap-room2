@@ -6,7 +6,7 @@ function KegList(props) {
   return (
     <React.Fragment>
       <hr/>
-      {props.masterKegList.map((keg, index) =>
+      {props.kegList.map((keg, index) =>
         <Keg 
           name = {keg.name}
           brand = {keg.brand} 
