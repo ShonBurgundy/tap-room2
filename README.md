@@ -28,7 +28,7 @@ _A REACT app which allows user to input new kegs and view its details, as will a
 
 ## Known Bugs
 
-No Full CRUD func.
+No Full CRUD func or styling.
 
 ## Support and contact details
 

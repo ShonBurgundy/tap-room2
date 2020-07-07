@@ -23,23 +23,28 @@ function NewKegForm(props){
           type='text'
           name='name'
           placeholder='Beer Name' />
+          <br></br>
         <input
           type='text'
           name='brand'
           placeholder='Brand' />
+          <br></br>
         <input
           type='text'
           name='price'
           placeholder='Price' />
+          <br></br>
         <input
           type='text'
           name='abv'
           placeholder='ABV' />
+          <br></br>
         <input
           type='text'
           name='quantity'
           placeholder='Keg Volume'
           value='124' />
+          <br></br>
         <button type='submit'>Add Keg</button>
       </form>
     </React.Fragment>
