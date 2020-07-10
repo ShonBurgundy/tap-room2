@@ -20,12 +20,13 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const { id, name, brand, price, abv, quantity } = newKeg;
     const action = {
+      type: 'ADD_KEG',
+      id: id,
       name: name,
       brand: brand,
       price: price,
       abv: abv,
-      quantity: quantity,
-      id: id
+      quantity: quantity
     }
     dispatch(action);
     this.setState({formVisibleOnPage: false});
@@ -66,11 +67,13 @@ class KegControl extends React.Component {
   }
 
   handleDeletingKeg = (id) => {
-    const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    this.setState({
-      masterKegList: newMasterKegList,
-      selectedKeg: null
-    });
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KEG',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedKeg: null});
   }
 
   handleEditClick = () => {
@@ -78,11 +81,19 @@ class KegControl extends React.Component {
   }
 
   handleEditingKegInList = (kegToEdit) => {
-    const editedMasterKegList = this.state.masterKegList
-    .filter(keg => keg.id !== this.state.selectedKeg.id)
-    .concat(kegToEdit);
+    const { dispatch } = this.props;
+    const { id, name, brand, price, abv, quantity } = kegToEdit;
+    const action = {
+      type: 'ADD_KEG',
+      id: id,
+      name: name,
+      brand: brand,
+      price: price,
+      abv: abv,
+      quantity: quantity
+    }
+    dispatch(action);
     this.setState({
-      masterKegList: editedMasterKegList,
       editing: false,
       selectedKeg: null
     });
