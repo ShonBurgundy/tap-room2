@@ -7,11 +7,42 @@ let store = createStore(rootReducer);
 
 describe("rootReducer", () => {
 
+  test('Check that initial state of kegListReducer matches root reducer', () => {
+    const action = {
+      type: 'ADD_KEG',
+      name: 'Batsquatch',
+      brand: 'Rogue',
+      price: '6',
+      abv: '8',
+      id: 1
+    }
+    store.dispatch(action);
+    expect(store.getState().masterKegList).toEqual(kegListReducer(undefined, action));
+  });
+
+  test('Check that initial state of formVisibleOnPage matches root reducer', () => {
+    const action = {
+      type: 'TOGGLE_FORM'
+    }
+    store.dispatch(action);
+    expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
+  });
+
   test('Should return default state if no action type is recognized', () => {
     expect(rootReducer({}, {type: null})).toEqual({
       masterKegList: {},
       formVisibleOnPage: false
     });
   });
+
+  // PEACE OF MIND TESTS
+    // test('Check initial state of kegListReducer matches root reducer', () => {
+  //   expect(store.getState().masterKegList).toEqual(kegListReducer(undefined, {type: null}
+  //   ));
+  // });
+
+  // test('Check initial state of formVisibleReducer matches root reducer', () => {
+  //   expect(store.getState().formVisibleOnPage).toEqual(kegListReducer(undefined, {type: null}));
+  // });
 
 });
