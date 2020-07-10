@@ -5,7 +5,7 @@
 
 ## Description
 
-_A REACT app which allows user to input new kegs and view its details, as will as well a pint at a time._
+_A REACT/Redux app which allows user to input new kegs and view its details, as will as well a pint at a time. All state managed by redux and testing done with Jest._
 
 ## Specs
 
@@ -38,6 +38,8 @@ __seanbeloussow@yahoo.com
 ## Technologies Used
 
 * _REACT_
+* _Redux
+* _Jest
 * _JSX_
 * _JavaScript_
 * _Markdown_
