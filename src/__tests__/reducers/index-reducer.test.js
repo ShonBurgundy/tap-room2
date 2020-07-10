@@ -1,4 +1,9 @@
 import rootReducer from '../../reducers/index';
+import { createStore } from 'redux';
+import formVisibleReducer from '../../reducers/form-visible-reducer';
+import kegListReducer from '../../reducers/keg-list-reducer';
+
+let store = createStore(rootReducer);
 
 describe("rootReducer", () => {
 
@@ -8,5 +13,5 @@ describe("rootReducer", () => {
       formVisibleOnPage: false
     });
   });
-  
+
 });
