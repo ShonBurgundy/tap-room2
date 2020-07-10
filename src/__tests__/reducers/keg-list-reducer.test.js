@@ -8,7 +8,7 @@ describe('kegListReducer', () =>  {
     brand: 'Rogue',
     price: '6',
     abv: '8',
-    quantity: '124',
+    // quantity: '124',
     id: 1
   }
 
@@ -17,13 +17,14 @@ describe('kegListReducer', () =>  {
   });
 
   test('Should successfully add new keg to masterKegList', () => {
-    const {name, brand, price, abv, quantity, id} = ticketData;
+    const {name, brand, price, abv, quantity, id} = kegData;
     action = {
-      type: 'ADD_TICKET',
+      type: 'ADD_KEG',
       name: name,
       brand: brand,
       price: price,
       abv: abv,
+      // quantity: quantity,
       id: id
     };
 
@@ -33,6 +34,7 @@ describe('kegListReducer', () =>  {
         brand: brand,
         price: price,
         abv: abv,
+        // quantity: quantity,
         id: id
       }
     });
