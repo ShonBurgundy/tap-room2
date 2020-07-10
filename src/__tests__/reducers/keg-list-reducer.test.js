@@ -3,15 +3,17 @@ import kegListReducer from '../../reducers/keg-list-reducer';
 describe('kegListReducer', () =>  {
 
   let action;
+
+  // FOR DEFAULT STATE TEST
   const kegData = {
     name: 'Batsquatch',
     brand: 'Rogue',
     price: '6',
     abv: '8',
-    // quantity: '124',
     id: 1
   }
 
+  // FOR DELETE_KEG TEST
   const currentState = {
     1: {name: 'Batsquatch',
     brand: 'Rogue',
@@ -25,10 +27,12 @@ describe('kegListReducer', () =>  {
     id: 2}
   }
 
+  // DEFAULT STATE TEST
   test('Should return default state if there is no action type passed into reducer', () => {
     expect(kegListReducer({}, {type: null})).toEqual({});
   });
 
+  // ADD_KEG TEST
   test('Should successfully add new keg to masterKegList', () => {
     const {name, brand, price, abv, id} = kegData;
     action = {
@@ -37,7 +41,6 @@ describe('kegListReducer', () =>  {
       brand: brand,
       price: price,
       abv: abv,
-      // quantity: quantity,
       id: id
     };
 
@@ -47,17 +50,18 @@ describe('kegListReducer', () =>  {
         brand: brand,
         price: price,
         abv: abv,
-        // quantity: quantity,
         id: id
       }
     });
   });
 
+  // DELETE_KEG TEST
   test('Should successfully delete a keg', () => {
     action = {
       type: 'DELETE_KEG',
       id:1
     };
+
     expect(kegListReducer(currentState, action)).toEqual({
       2: {name: 'Sticky Hands',
       brand: 'Block 15',
