@@ -27,6 +27,7 @@ function ReusableForm(props) {
           <br></br>
         <input
           type='text'
+          readOnly
           name='quantity'
           placeholder='Keg Volume'
           value='124' />

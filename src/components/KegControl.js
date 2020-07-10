@@ -4,6 +4,7 @@ import KegList from './KegList';
 import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class KegControl extends React.Component {
 
@@ -33,7 +34,7 @@ class KegControl extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.props.masterKegList[id];
     this.setState({selectedKeg: selectedKeg});
   }
 
@@ -52,16 +53,15 @@ class KegControl extends React.Component {
   }
 
   handleSellPint = (id) => {
-    const newSelectedKeg = this.state.masterKegList.filter((keg) => keg.id === id)[0];
-    if(newSelectedKeg.quantity === 0) {
+    const oldKeg = this.props.masterKegList[id];
+    if(oldKeg.quantity === 0) {
       alert("Keg is tapped out, sorry dude!")
     } else {
-      const decPint = newSelectedKeg.quantity -1;
-      const sellPint = {...newSelectedKeg, quantity: decPint}
-      const soldPint = this.state.masterKegList.filter((keg) => keg.id !== id);
+      const decQuantity = oldKeg.quantity - 1;
+      const newKeg = {...oldKeg, quantity: decQuantity}
+      this.props.masterKegList[id] = newKeg;
       this.setState({
-        masterKegList: [...soldPint, sellPint],
-        selectedKeg: sellPint
+        selectedKeg: newKeg
       });
     }
   }
@@ -125,7 +125,7 @@ class KegControl extends React.Component {
     } else {
         currentlyVisibleState = 
           <KegList 
-            kegList={this.state.masterKegList} 
+            kegList={this.props.masterKegList} 
             onKegSelection={this.handleChangingSelectedKeg} />;
             buttonText = "Add Keg";
     }
@@ -139,6 +139,16 @@ class KegControl extends React.Component {
 
 }
 
-KegControl = connect()(KegControl);
+KegControl.propTypes = {
+  masterKegList: PropTypes.object
+};
+
+const mapStateProps = state => {
+  return {
+    masterKegList: state
+  }
+}
+
+KegControl = connect(mapStateProps)(KegControl);
 
 export default KegControl;
