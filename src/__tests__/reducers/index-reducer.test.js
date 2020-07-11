@@ -35,14 +35,4 @@ describe("rootReducer", () => {
     });
   });
 
-  // PEACE OF MIND TESTS
-    // test('Check initial state of kegListReducer matches root reducer', () => {
-  //   expect(store.getState().masterKegList).toEqual(kegListReducer(undefined, {type: null}
-  //   ));
-  // });
-
-  // test('Check initial state of formVisibleReducer matches root reducer', () => {
-  //   expect(store.getState().formVisibleOnPage).toEqual(kegListReducer(undefined, {type: null}));
-  // });
-
 });
